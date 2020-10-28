@@ -1,0 +1,49 @@
+h1{
+	text-align: center;
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+
+#connectionform p{
+	padding-right: 1em;
+}
+
+#explications h4{
+	text-align: center;
+}
+
+#explications h3{
+	text-align: center;
+	margin-top: 3em;
+	margin-bottom: 1em;
+}
+
+#indexdesc{
+	text-align: justify;
+}
+
+.container-fluid .btn {
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-size: 16px;
+  padding: 12px 24px;
+  border: none;
+  //cursor: pointer;
+  border-radius: 5px;
+}
+
+.container-fluid #imgtext {
+  position: absolute;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  font-size: 50px;
+  color: white;
+  text-align: center;
+  font-weight: 300;
+}
