@@ -22,15 +22,15 @@
 		</p>
 
 		<p>
-			<input type="submit" name="Se connecter">
+			<input type="submit" value="Se connecter">
 		</p>
 	</form>
 </div>
 
 
 <div class="container-fluid">
-	<img class="row" width="100%" src="images/shakinghands.jpg">
-	<a href="#"><button class=" btn btn-info ">Créer un compte !</button></a>
+	<img class="img-fluid" src="images/shakinghands.jpg">
+	<a href="#creationaccountform"><button class=" btn btn-info">Créer un compte !</button></a>
 	<p id="imgtext">Vous souhaitez démarrer notre aventure avec nous ? </p>
 </div>
 
@@ -63,26 +63,31 @@
 		<div class="col-6">
 			
 			<h3>Créez un compte dès maintenant !</h3>
-			<p>fjzeiofjie</p>
-		<form action="#" method="post" >
+			<p>Et bénéficiez de 50 euros sur votre compte courant !</p>
+		<form action="#" method="post" id="creationaccountform" >
 			<p>
-				<label for="identifiant"> Identifiant:</label>
-				<input type="text" name="identifiant" id="identifiant">
+				<label for="nomcreation"> Nom:</label>
+				<input type="text" name="nomcreation" id="nomcreation">
 			</p>
+			<p>
+				<label for="prenomcreation"> Prenom:</label>
+				<input type="text" name="prenomcreation" id="prenomcreation">
+			</p>
+			<p>
+				<label for="mdpcreation"> Mot de passe:</label>
+				<input type="text" name="mdpcreation" id="mdpcreation">
+			</p>
+			<p>
+				<label for="mailcreation"> Adresse Mail:</label>
+				<input type="text" name="mailcreation" id="mailcreation">
+			</p>
+			<input type="submit" value="Creer votre compte !">
 		</form>
 		</div>
 		
 
 	</div>
 </div>
-
-
-
-
-
-
-
-
 
 
 <?php include("templates/footer.inc.php"); ?>

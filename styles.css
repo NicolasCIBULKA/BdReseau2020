@@ -2,11 +2,25 @@ h1{
 	text-align: center;
 	margin-top: 0.5em;
 	margin-bottom: 0.5em;
+  font-size: 3em;
+}
+/* Style nav */
+
+nav{
+  border:5px solid grey;
+  margin-right: 1em;
+  margin-left: 1em;
 }
 
+/* Style formulaire de connexion */
+#connectionform{
+
+  padding-top: 0.5em;
+}
 
 #connectionform p{
 	padding-right: 1em;
+
 }
 
 #explications h4{
@@ -32,8 +46,9 @@ h1{
   font-size: 16px;
   padding: 12px 24px;
   border: none;
-  //cursor: pointer;
+  cursor: pointer;
   border-radius: 5px;
+  background-color: green;
 }
 
 .container-fluid #imgtext {
@@ -46,4 +61,24 @@ h1{
   color: white;
   text-align: center;
   font-weight: 300;
+}
+
+/* Style formulaire creation compte*/
+
+/*------ TODO -------*/
+
+/* Style Footer */
+footer{
+  margin-top: 3em;
+  background-color: green;
+  padding-bottom: 2em;
+}
+
+footer h2{
+  text-align: center;
+}
+
+footer p{
+  text-align: center;
+  padding-top: 4em;
 }
