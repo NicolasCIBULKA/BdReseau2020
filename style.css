@@ -6,10 +6,19 @@ h1{
 }
 /* Style nav */
 
+#soustitre{
+  text-align: center;
+  padding-top: 1em;
+}
+
 nav{
-  border:5px solid grey;
+  border:1px solid grey;
   margin-right: 1em;
   margin-left: 1em;
+}
+
+nav a{
+  color: grey;
 }
 
 /* Style formulaire de connexion */
@@ -66,6 +75,22 @@ nav{
 /* Style formulaire creation compte*/
 
 /*------ TODO -------*/
+
+
+
+/* Style page principale connexion */
+
+#montantcc {
+  text-align: center;
+  margin-right: 2em;
+  margin-left: 2em;
+  border: 1px solid black;
+}
+
+#montantce h2{
+  margin-top: 2em;
+  margin-bottom: 1em;
+}
 
 /* Style Footer */
 footer{
