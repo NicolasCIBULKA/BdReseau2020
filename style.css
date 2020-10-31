@@ -92,6 +92,19 @@ nav a{
   margin-bottom: 1em;
 }
 
+
+/* style historique */
+
+#formnbelemcc, #formnbelemce{
+  text-align: center;
+}
+
+/* style virement*/
+
+#selvirement a {
+  text-align: center;
+}
+
 /* Style Footer */
 footer{
   margin-top: 3em;

@@ -4,7 +4,7 @@
 	
 	<?php include("templates/nav.inc.php"); ?>
 
-	<div class="container-fluid">
+	<div class="container">
 		<h2 id="soustitre">Information générale sur vos comptes</h2>
 
 		<p style="text-align: center;">28/10/2020</p>
@@ -31,7 +31,7 @@
 	</div>
 
 
-	<div class="container-fluid" id="montantce">
+	<div class="container" id="montantce">
 		<h2>Comptes Epargne</h2>
 		<table class="table">
 			<tr>

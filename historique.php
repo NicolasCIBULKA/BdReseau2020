@@ -38,6 +38,16 @@
 					<td>454.34</td>
 				</tr>
 			</table>
+			<form method="get" action="#" id="formnbelemcc">
+				<p>
+					<label for="nbelemcc">Nombre d'operations à afficher</label>
+					<select type="list" name="nbelemcc">
+						<option value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+					</select>
+				</p>
+			</form>
 		</div>
 
 		<div class="container">
@@ -66,7 +76,16 @@
 				</tr>
 			</table>
 		</div>
-		
+		<form method="get" action="#" id="formnbelemce">
+				<p>
+					<label for="nbelemce">Nombre d'operations à afficher</label>
+					<select type="list" name="nbelemce">
+						<option value="10">10</option>
+						<option value="25">25</option>
+						<option value="50">50</option>
+					</select>
+				</p>
+			</form>
 	</div>
 
 	<?php include("templates/footer.inc.php"); ?>
