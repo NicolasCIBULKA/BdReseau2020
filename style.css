@@ -130,6 +130,13 @@ nav a{
     margin-bottom: 1em;
  }
 
+ /* Style page informations */
+
+#infopersonelles{
+  border : 1px solid grey;
+  margin: 1em;
+  padding: 1em;
+}
 
 /* Style Footer */
 footer{
