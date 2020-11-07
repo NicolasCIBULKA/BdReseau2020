@@ -10,11 +10,11 @@
 			<h3>Compte courant</h3>
 			<table class="table">
 				<tr>
-					<td>Date</td>
-					<td>Type d'operation</td>
-					<td>Montant débit</td>
-					<td>Montant crédit</td>
-					<td>Solde</td>
+					<th>Date</th>
+					<th>Type d'operation</th>
+					<th>Montant débit</th>
+					<th>Montant crédit</th>
+					<th>Solde</th>
 				</tr>
 				<tr>
 					<td>04/04/20</td>
@@ -46,6 +46,7 @@
 						<option value="25">25</option>
 						<option value="50">50</option>
 					</select>
+					<input type="submit" value="Afficher">
 				</p>
 			</form>
 		</div>
@@ -54,11 +55,11 @@
 			<h3>Comptes Epargnes</h3>
 			<table class="table">
 				<tr>
-					<td>Date</td>
-					<td>Type d'operation</td>
-					<td>Montant débit</td>
-					<td>Montant crédit</td>
-					<td>Solde</td>
+					<th>Date</th>
+					<th>Type d'operation</th>
+					<th>Montant débit</th>
+					<th>Montant crédit</th>
+					<th>Solde</th>
 				</tr>
 				<tr>
 					<td>04/04/20</td>
@@ -84,6 +85,7 @@
 						<option value="25">25</option>
 						<option value="50">50</option>
 					</select>
+					<input type="submit" value="Afficher">
 				</p>
 			</form>
 	</div>

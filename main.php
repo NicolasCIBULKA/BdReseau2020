@@ -17,6 +17,7 @@
 					<p>Montant actuel sur le compte courant</p>
 				</div>
 				<div>
+					<p>Plafond : 443 €</p>
 					<p>Redéfinir le plafond de paiement</p>
 					<form method="post" action="#">
 						<p>
@@ -35,9 +36,9 @@
 		<h2>Comptes Epargne</h2>
 		<table class="table">
 			<tr>
-				<td>Type de compte</td>
-				<td>Montant</td>
-				<td>Date de prochain versement d'interets</td>
+				<th>Type de compte</th>
+				<th>Montant</th>
+				<th>Date de prochain versement d'interets</th>
 			</tr>
 			<tr>
 				<td>LivretA</td>

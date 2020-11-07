@@ -15,10 +15,10 @@
 				<a class="nav-link active" href="virement.php">Virements</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" href="#">Ouvrir/ Cloturer un compte</a>
+				<a class="nav-link active" href="gestioncompte.php">Ouvrir/ Cloturer un compte</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" href="#">Informations personelles</a>
+				<a class="nav-link active" href="informations.php">Informations personelles</a>
 			</li>
 			<li class="nav-item">
 				<a class="nav-link active" href="#">Déconnexion</a>

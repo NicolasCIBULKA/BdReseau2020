@@ -19,10 +19,10 @@
 		<h4>Virements inter-comptes</h4>
 		<table class="table">
 			<tr>
-				<td>Numero de Virement</td>
-				<td>Montant</td>
-				<td>Compte Source</td>
-				<td>Compte Destination</td>
+				<th>Numero de Virement</th>
+				<th>Montant</th>
+				<th>Compte Source</th>
+				<th>Compte Destination</th>
 			</tr>
 			<tr>
 				<td>463469270</td>
@@ -53,10 +53,10 @@
 		<h4>Virement vers d'autres utilisateurs</h4>
 		<table class="table">
 			<tr>
-				<td>Numero de Virement</td>
-				<td>Montant</td>
-				<td>Compte Source</td>
-				<td>Destinataire</td>
+				<th>Numero de Virement</th>
+				<th>Montant</th>
+				<th>Compte Source</th>
+				<th>Destinataire</th>
 			</tr>
 			<tr>
 				<td>463469270</td>

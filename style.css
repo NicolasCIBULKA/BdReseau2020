@@ -117,6 +117,20 @@ nav a{
   box-shadow: 5px 5px 10px  grey;
 }
 
+/* Style gestionCompte */
+#gestioncomptediv{
+  margin: 1em;
+  border: 1px solid black;
+}
+
+
+ #gestioncomptesoustitre{
+    text-align: center;
+    margin-top: 1em;
+    margin-bottom: 1em;
+ }
+
+
 /* Style Footer */
 footer{
   margin-top: 3em;
