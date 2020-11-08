@@ -21,6 +21,17 @@ nav a{
   color: grey;
 }
 
+#indexsoustitre{
+  font-size: 2em;
+}
+
+#indexformcomptecreation{
+  border: 1px solid grey;
+  padding: 1em;
+  margin: 1em;
+}
+
+
 /* Style formulaire de connexion */
 #connectionform{
 
