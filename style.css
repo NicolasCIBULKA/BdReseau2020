@@ -117,6 +117,12 @@ nav a{
   box-shadow: 5px 5px 10px  grey;
 }
 
+#virementdiv{
+  margin: 1em;
+  border: 1px solid black;
+  padding: 1em;
+}
+
 /* Style gestionCompte */
 #gestioncomptediv{
   margin: 1em;

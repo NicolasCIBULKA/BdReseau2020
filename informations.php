@@ -15,7 +15,9 @@
 				<p>Nom : fazefa</p>
 				<p>Prenom : feazfa</p>
 				<!-- 
+					------------------------------------------------------------
 				Mettre le nom d'entreprise et l'id terminal pour une entreprise
+					------------------------------------------------------------
 				-->
 			</div>
 		</div>
