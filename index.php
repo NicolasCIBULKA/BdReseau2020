@@ -65,21 +65,21 @@
 
 		<div id="indexformcomptecreation" class="col-5 text-center">	
 			<p id="indexsoustitre">Vous êtes un particulier ?</p>
-			<form action="#" method="post" id="creationaccountform" >
+			<form action="creercompteparticulier.php" method="post" id="creationaccountform" >
 				<p>
-					<label for="nomcreation"> Nom:</label>
-					<input type="text" name="nomcreation" id="nomcreation">
+					<label for="nomcreation"> Nom :</label>
+					<input type="text" name="nomcreation" id="nomcreation" >
 				</p>
 				<p>
-					<label for="prenomcreation"> Prenom:</label>
+					<label for="prenomcreation"> Prenom :</label>
 					<input type="text" name="prenomcreation" id="prenomcreation">
 				</p>
 				<p>
-					<label for="mdpcreation"> Mot de passe:</label>
+					<label for="mdpcreation"> Mot de passe :</label>
 					<input type="text" name="mdpcreation" id="mdpcreation">
 				</p>
 				<p>
-					<label for="mailcreation"> Adresse Mail:</label>
+					<label for="mailcreation"> Adresse Mail :</label>
 					<input type="text" name="mailcreation" id="mailcreation">
 				</p>
 				<input type="submit" value="Creer votre compte Client!">
@@ -90,15 +90,15 @@
 			<p id="indexsoustitre">Vous êtes une Entreprise ?</p>
 			<form action="#" method="post" id="creationaccountform" >
 				<p>
-					<label for="nomentreprise"> Nom d'Entreprise:</label>
+					<label for="nomentreprise"> Nom d'Entreprise :</label>
 					<input type="text" name="nomentreprise" id="nomentreprise">
 				</p>
 				<p>
-					<label for="mdpcreation"> Mot de passe:</label>
+					<label for="mdpcreation"> Mot de passe :</label>
 					<input type="text" name="mdpcreation" id="mdpcreation">
 				</p>
 				<p>
-					<label for="mailcreation"> Adresse Mail:</label>
+					<label for="mailcreation"> Adresse Mail :</label>
 					<input type="text" name="mailcreation" id="mailcreation">
 				</p>
 				<input type="submit" value="Creer votre compte Entreprise!">

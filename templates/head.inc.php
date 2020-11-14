@@ -1,3 +1,4 @@
+<?php include("function/functions.inc.php"); ?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
