@@ -21,7 +21,7 @@
 				<a class="nav-link active" href="informations.php">Informations personelles</a>
 			</li>
 			<li class="nav-item">
-				<a class="nav-link active" href="#">Déconnexion</a>
+				<a class="nav-link active" href="function/deconnexion.php">Déconnexion</a>
 			</li>
 		</ul>		
 	</nav>

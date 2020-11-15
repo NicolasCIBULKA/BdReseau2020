@@ -1,3 +1,11 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION["identifiant"])){
+		session_destroy();
+		header("Location:index.php");
+	}
+?>
+
 <?php  include("templates/head.inc.php"); ?>
 <body>
 	<?php include("templates/header.inc.php"); ?>

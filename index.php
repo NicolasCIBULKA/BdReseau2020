@@ -10,7 +10,7 @@
 <?php include("templates/header.inc.php"); ?>
 
 <div class="container-fluid">
-	<form method="post" action="connexion.php" id="connectionform" class="row justify-content-end ">
+	<form method="post" action="function/connexion.php" id="connectionform" class="row justify-content-end ">
 		<p>
 			<label for="identifiant">Identifiant :</label>
 			<input type="text" name="identifiant" id="identifiant">
@@ -18,7 +18,7 @@
 
 		<p>
 			<label for="mdp">Mot de passe :</label>
-			<input type="text" name="mdp" id="mdp">
+			<input type="password" name="mdp" id="mdp">
 		</p>
 
 		<p>
