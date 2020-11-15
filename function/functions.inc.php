@@ -12,7 +12,7 @@
 // Fonction de connexion à la bd
 function BDconnect(){
 	try{
-		$bdd=new PDO('pgsql:host=localhost;dbname=bdprojet;charset=utf8','bduser','A123456*', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
+		$bdd=new PDO('pgsql:host=localhost;dbname=bdprojet','bduser','A123456*', array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
 		
 	}
 	catch (Exception $e){

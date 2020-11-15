@@ -65,22 +65,22 @@
 
 		<div id="indexformcomptecreation" class="col-5 text-center">	
 			<p id="indexsoustitre">Vous êtes un particulier ?</p>
-			<form action="creercompteparticulier.php" method="post" id="creationaccountform" >
+			<form action="function/creercompteparticulier.php" method="post" id="creationaccountform" >
 				<p>
 					<label for="nomcreation"> Nom :</label>
-					<input type="text" name="nomcreation" id="nomcreation" >
+					<input type="text" name="nomcreation" id="nomcreation" required="required" >
 				</p>
 				<p>
 					<label for="prenomcreation"> Prenom :</label>
-					<input type="text" name="prenomcreation" id="prenomcreation">
+					<input type="text" name="prenomcreation" id="prenomcreation" required="required" >
 				</p>
 				<p>
 					<label for="mdpcreation"> Mot de passe :</label>
-					<input type="text" name="mdpcreation" id="mdpcreation">
+					<input type="text" name="mdpcreation" id="mdpcreation" required="required" >
 				</p>
 				<p>
 					<label for="mailcreation"> Adresse Mail :</label>
-					<input type="text" name="mailcreation" id="mailcreation">
+					<input type="text" name="mailcreation" id="mailcreation" required="required" >
 				</p>
 				<input type="submit" value="Creer votre compte Client!">
 			</form>
@@ -95,7 +95,7 @@
 				</p>
 				<p>
 					<label for="mdpcreation"> Mot de passe :</label>
-					<input type="text" name="mdpcreation" id="mdpcreation">
+					<input type="password" name="mdpcreation" id="mdpcreation">
 				</p>
 				<p>
 					<label for="mailcreation"> Adresse Mail :</label>
