@@ -65,7 +65,7 @@
 
 		<div id="indexformcomptecreation" class="col-5 text-center">	
 			<p id="indexsoustitre">Vous êtes un particulier ?</p>
-			<form action="function/creercompteparticulier.php" method="post" id="creationaccountform" >
+			<form action="creercompteparticulier.php" method="post" id="creationaccountform" >
 				<p>
 					<label for="nomcreation"> Nom :</label>
 					<input type="text" name="nomcreation" id="nomcreation" required="required" >

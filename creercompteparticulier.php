@@ -1,12 +1,12 @@
-<?php include("../templates/head.inc.php"); ?>
+<?php include("templates/head.inc.php"); ?>
 
 <body>
 	
-<?php include("../templates/header.inc.php"); ?>
+<?php include("templates/header.inc.php"); ?>
 
 
 <?php 
-	include("functions.inc.php");
+	include("function/functions.inc.php");
 	if(isset($_POST["nomcreation"]) && isset($_POST["prenomcreation"]) && isset($_POST["mdpcreation"]) && isset($_POST["mailcreation"]) ){
 		if(strlen($_POST["mdpcreation"]) < 6){
 			echo "<p>Mot de passe trop court, veuillez en mettre un de plus de 6 caractères !</p>";
@@ -86,12 +86,12 @@
 
 	}
 	echo "<p>Redirection ...</p>";
-	//header("refresh:5;url=index.php");
+	header("refresh:5;url=index.php");
 ?>
 
 
 
-<?php include("../templates/footer.inc.php"); ?>
+<?php include("templates/footer.inc.php"); ?>
 
 </body>
 </html>
