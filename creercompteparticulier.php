@@ -6,7 +6,6 @@
 
 
 <?php 
-	include("function/functions.inc.php");
 	if(isset($_POST["nomcreation"]) && isset($_POST["prenomcreation"]) && isset($_POST["mdpcreation"]) && isset($_POST["mailcreation"]) ){
 		if(strlen($_POST["mdpcreation"]) < 6){
 			echo "<p>Mot de passe trop court, veuillez en mettre un de plus de 6 caractères !</p>";

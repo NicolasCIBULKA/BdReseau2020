@@ -24,16 +24,21 @@
 			$row = $req->fetch();
 			$mdp = $row[2];
 			if(password_verify($_POST["mdp"],$mdp)){
-				$req = $bdd->prepare("SELECT * FROM Particulier WHERE idUtilisateur = (SELECT idUtilisateur FROM Utilisateur WHERE mail=? AND mdp=?)");
-				$req->execute(array($_POST["identifiant"], $_POST["mdp"]));
+				$req = $bdd->prepare("SELECT * FROM Particulier WHERE idUtilisateur = (SELECT idUtilisateur FROM Utilisateur WHERE mail=?)");
+				$req->execute(array($_POST["identifiant"]));
 				if($req->rowCount() > 0){
-					$status = 'particulier';
+					$status = "particulier";
 				}
 				else{
-					$status = 'entreprise';
+					$status = "entreprise";
 				}
+				// recuperation idUtilisateur
+				$req = $bdd->prepare("SELECT idUtilisateur FROM Utilisateur WHERE mail = ?");
+				$req->execute(array($_POST["identifiant"]));
+				$elt = $req->fetch();
+
 				// Creation variable de session et accès a main.php
-				$_SESSION["identifiant"] = $_POST["identifiant"];
+				$_SESSION["identifiant"] = $elt[0];
 				$_SESSION["mdp"] = $_POST["mdp"];
 				$_SESSION["status"] = $status;
 				header('Location:../main.php');

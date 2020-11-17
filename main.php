@@ -15,13 +15,13 @@
 	<div class="container">
 		<h2 id="soustitre">Information générale sur vos comptes</h2>
 
-		<p style="text-align: center;">28/10/2020</p>
+		<p style="text-align: center;"><?php echo getcurrentDate(); ?></p>
 
 			<div class="row align-items-center">
 				
 				<h2 class="col-3">Compte Courant</h2>
 				<div class="col-5" id="montantcc">
-					<p style="font-weight: 500; font-size: 4em;">234.45€</p>
+					<p style="font-weight: 500; font-size: 4em;"><?php echo getMoneyCC($_SESSION["identifiant"]); ?>€</p>
 					<p>Montant actuel sur le compte courant</p>
 				</div>
 				<div>

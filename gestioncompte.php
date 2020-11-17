@@ -11,27 +11,20 @@
 				<h3 id="gestioncomptesoustitre" >Ouverture</h3>
 				<table class="table">
 					<tr>
-						<th>Type de compte</th>
+						<th>Type de Compte possibles</th>
 						<th>Interet</th>
 						<th>Plafond</th>
 					</tr>
-					<tr>
-						<td>LivretA</td>
-						<td>2%</td>
-						<td>2797€</td>
-					</tr>
-					<tr>
-						<td>PEL</td>
-						<td>2%</td>
-						<td>2797€</td>
-					</tr>
+					<?php getTypeCompteTab(); ?>
 				</table>
-
-				<form action="#">
-					<select>
-						<option value="">LivretA</option>
-						<option value="">LivretA</option>
-						<option value="">LivretA</option>
+				<?php $tabNomCompte = getNameTypeCompteTab(); ?>
+				<form action="function/creationCompteEpargne.php">
+					<select name="typeCompte" id="typeCompte">
+						<?php 
+							for($i = 0;$i < count($tabNomCompte); $i++){
+								echo "<option value=".$tabNomCompte[$i].">".$tabNomCompte[$i]."</option>";
+							}
+						?>
 					</select>
 					<input type="submit" value="Ouvrir">
 				</form>
@@ -42,7 +35,7 @@
 				<h3 id="gestioncomptesoustitre" >Clôturation</h3>
 				<table class="table">
 					<tr>
-						<th>Type de compte</th>
+						<th>Type de Compte</th>
 						<th>RIB</th>
 						<th>Montant</th>
 					</tr>

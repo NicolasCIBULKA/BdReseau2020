@@ -1,3 +1,11 @@
+<?php 
+session_start();
+	if(!isset($_SESSION["identifiant"])){
+		session_destroy();
+		header("Location:index.php");
+	} 
+?>
+
 <?php  include("templates/head.inc.php"); ?>
 <body>
 	<?php include("templates/header.inc.php"); ?>
@@ -9,16 +17,25 @@
 	<div class="container">
 		<div  class="row justify-content-center">
 			<div id="infopersonelles"  class="col-6">
-				<p>Identifiant Client : 69329</p>
-				<p>Adresse Mail : fjezipfj@fefkzeo.ke</p>
-				<p>Argent total en banque : 849302€</p>
-				<p>Nom : fazefa</p>
-				<p>Prenom : feazfa</p>
-				<!-- 
-					------------------------------------------------------------
-				Mettre le nom d'entreprise et l'id terminal pour une entreprise
-					------------------------------------------------------------
-				-->
+				<p>Identifiant Client : <?php echo $_SESSION["identifiant"]; ?></p>
+				<?php 
+				if($_SESSION["status"] == "particulier" ){
+					$tabPart = getInfoParticulier($_SESSION["identifiant"]);
+					echo "<p>Adresse Mail : ".$tabPart[2]."</p>";
+					echo "<p>Argent total en banque : ".getTotalMoney($_SESSION["identifiant"])."€</p>";
+					echo "<p>Nom : ".$tabPart[0]."</p>";
+					echo "<p>Prenom : ".$tabPart[1]."</p>";
+
+				}
+				else{
+					$tabEnt = getInfoEntreprise($_SESSION["identifiant"]);
+					echo "<p>Adresse Mail = ".$tabPart[2]."</p>";
+					echo "<p>Argent total en banque : ".getTotalMoney($_SESSION["identifiant"])."€</p>";
+					echo "<p>Nom Entreprise = ".$tabPart[0]."</p>";
+					echo "<p>Identifiant de Terminal de Paiement = ".$tabPart[1]."</p>";
+				}
+
+				?>
 			</div>
 		</div>
 		<h3 id="soustitre">Modifications d'informations</h3>
@@ -26,7 +43,8 @@
 
 			<div id="infopersonelles"  class="col-6">
 				
-				<form action="#">
+				<form method="post" action="function/modifyinfos.php">
+
 					<div>
 						<label for="mail" >Adresse mail : </label>
 						<input type="text" name="mail" value="efizhap@fioazj.cs">
