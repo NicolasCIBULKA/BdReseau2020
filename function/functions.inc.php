@@ -184,8 +184,10 @@ function getOptionCC($identifiant){
 	echo "<option value=".$row[0]."> Compte Courant- ".$row[0]."</option>";	
 }
 
-
-
+// affichage tab historique 10 derniers virements 
+function getTabHistoVirements($identifiant){
+	
+}
 
 
 
