@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION["identifiant"])){
+		session_destroy();
+		header("Location:index.php");
+	}
+?>
 <?php  include("templates/head.inc.php"); ?>
 <body>
 	<?php include("templates/header.inc.php"); ?>
@@ -18,7 +25,7 @@
 					<?php getTypeCompteTab(); ?>
 				</table>
 				<?php $tabNomCompte = getNameTypeCompteTab(); ?>
-				<form action="function/creationCompteEpargne.php">
+				<form method="post" action="function/creationCompteEpargne.php">
 					<select name="typeCompte" id="typeCompte">
 						<?php 
 							for($i = 0;$i < count($tabNomCompte); $i++){
@@ -39,24 +46,13 @@
 						<th>RIB</th>
 						<th>Montant</th>
 					</tr>
-					<tr>
-						<td>LivretA</td>
-						<td>112897329732</td>
-						<td>2797€</td>
-					</tr>
-					<tr>
-						<td>LivretA</td>
-						<td>112897329732</td>
-						<td>2797€</td>
-					</tr>
+					<?php getComptePossedeTab($_SESSION["identifiant"]) ?>
 				</table>
-				<form action="#">
-					<select>
-						<option value="">LivretA - 1234567891010</option>
-						<option value="">LivretA - 1234567891010</option>
-						<option value="">LivretA - 1234567891010</option>
+				<form method="post" action="function/clotureCompteEpargne.php">
+					<select id="rib" name="rib">
+						<?php getOptionCompteDelete($_SESSION["identifiant"]); ?>
 					</select>
-					<input type="submit" value="Cloturer">
+					<input type="submit" value="Clôturer">
 				</form>
 			</div>	
 		</div>

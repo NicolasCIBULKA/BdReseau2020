@@ -1,3 +1,10 @@
+<?php 
+	session_start();
+	if(!isset($_SESSION["identifiant"])){
+		session_destroy();
+		header("Location:index.php");
+	}
+?>
 <?php  include("templates/head.inc.php"); ?>
 <body>
 	<?php include("templates/header.inc.php"); ?>
@@ -9,24 +16,20 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div id="virementdiv" class="col-6 ">
-					<form method="post" action="">
+					<form method="post" action="function/virementintercompte.php">
 						<p>
 							<label for="comptesource">Compte Source : </label>
 							<select name="comptesource" id="comptesource">
-								<option value="">LivretA - 7893942</option>
-								<option value="">PEL - 7893942</option>
-								<option value="">COmpte Courant - 7893942</option>
-								<option value="">LivretA - 7893942</option>
+								<?php getOptionCC($_SESSION["identifiant"]) ?>
+								<?php getOptionCompteDelete($_SESSION["identifiant"]); ?>
 							</select>
 						</p>
 						
 						<p>
 							<label for="comptedest">Compte Destination : </label>
 							<select name="comptedest" id="comptedest">
-								<option value="">LivretA - 7893942</option>
-								<option value="">PEL - 7893942</option>
-								<option value="">COmpte Courant - 7893942</option>
-								<option value="">LivretA - 7893942</option>
+								<?php getOptionCC($_SESSION["identifiant"]) ?>
+								<?php getOptionCompteDelete($_SESSION["identifiant"]); ?>
 							</select>
 						</p>
 

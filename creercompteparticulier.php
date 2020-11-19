@@ -28,7 +28,7 @@
 			}
 
 			do {
-				$futureRib = rand(100000000000, 99999999999);
+				$futureRib = rand(100000000000, 999999999999);
 			} while (in_array($futureRib,$arrayRib));
 			// creer utilisateur
 			$req = $bdd->prepare("INSERT INTO Utilisateur ( mail, mdp) VALUES ( ?, ?)");

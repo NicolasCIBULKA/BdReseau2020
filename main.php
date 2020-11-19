@@ -25,11 +25,12 @@
 					<p>Montant actuel sur le compte courant</p>
 				</div>
 				<div>
-					<p>Plafond : 443 €</p>
+					<p>Plafond : <?php echo getPlafond($_SESSION["identifiant"]) ?> €</p>
 					<p>Redéfinir le plafond de paiement</p>
-					<form method="post" action="#">
+					<form method="post" action="function/refaireplafond.php">
 						<p>
 							<input type="text" name="plafondpaiement">
+							€
 						</p>
 						<input type="submit" value="Nouveau plafond">
 
@@ -45,24 +46,11 @@
 		<table class="table">
 			<tr>
 				<th>Type de compte</th>
+				<th>RIB</th>
 				<th>Montant</th>
 				<th>Date de prochain versement d'interets</th>
 			</tr>
-			<tr>
-				<td>LivretA</td>
-				<td>300.43</td>
-				<td>03/02</td>
-			</tr>
-			<tr>
-				<td>PEL</td>
-				<td>443.54</td>
-				<td>07/03</td>
-			</tr>
-			<tr>
-				<td>Assurance Vie</td>
-				<td>2458.57</td>
-				<td>23/05</td>
-			</tr>
+			<?php getTabCE($_SESSION["identifiant"]) ?>
 		</table>
 
 	</div>
