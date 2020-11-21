@@ -4,21 +4,18 @@
 	
 <?php include("templates/header.inc.php"); ?>
 
-
 <?php 
-	if(isset($_POST["nomcreation"]) && isset($_POST["prenomcreation"]) && isset($_POST["mdpcreation"]) && isset($_POST["mailcreation"]) ){
+	
+	if(isset($_POST["nomentreprise"]) && isset($_POST["mdpcreation"]) && isset($_POST["mailcreation"])){
 		if(strlen($_POST["mdpcreation"]) < 6){
 			echo "<p>Mot de passe trop court, veuillez en mettre un de plus de 6 caractères !</p>";
 		}
 		$bdd = BDconnect();
-		// verifier la non existence du compte
-		$req = $bdd->prepare("SELECT mail, nom, prenom FROM Utilisateur, Particulier WHERE mail=? OR nom=? AND prenom=? ");
-		$req->execute(array($_POST["mailcreation"], $_POST["nomcreation"], $_POST["prenomcreation"]));
-
+		// verifier existence entreprise
+		$req = $bdd->prepare("SELECT mail, nomEntreprise FROM Utilisateur, Entreprise WHERE mail=? OR nomEntreprise = ? ");
+		$req->execute(array($_POST["mailcreation"], $_POST["nomentreprise"]));
 		if($req->rowCount() == 0){
-		// si non existe, on insert l'utilisateur
-
-			// trouver un rib unique
+			// sin on existe, on insert l'utilisateur
 			$req = $bdd->prepare("SELECT rib FROM Compte");
 			$req->execute();
 			$i = 0;
@@ -33,7 +30,7 @@
 			// creer utilisateur
 			$req = $bdd->prepare("INSERT INTO Utilisateur ( mail, mdp) VALUES ( ?, ?)");
 			$req->execute(array( $_POST["mailcreation"], password_hash($_POST["mdpcreation"], PASSWORD_DEFAULT)));
-			// creer particulier
+			// creer Entreprise
 
 			// on recupere d'abord l'id D'utiisateur qu'on vient d'inserer
 			$req = $bdd->prepare("SELECT idUtilisateur FROM Utilisateur WHERE mail = ?");
@@ -41,9 +38,20 @@
 			$row = $req->fetch();
 			$numUtilisateur = $row[0];
 
-			$req = $bdd->prepare("INSERT INTO Particulier ( idUtilisateur, nom, prenom) VALUES ( ?, ?, ?)");
-			$req->execute(array( $numUtilisateur, $_POST["nomcreation"], $_POST["prenomcreation"]));
+			$req = $bdd->prepare("INSERT INTO Entreprise ( idUtilisateur, nomEntreprise) VALUES ( ?, ?)");
+			$req->execute(array( $numUtilisateur, $_POST["nomentreprise"]));
+			// Generation de l'id de terminal
 
+			// on recupere l'id d'Entreprise
+			$req = $bdd->prepare("SELECT idEntreprise FROM Entreprise ORDER BY idEntreprise DESC LIMIT 1");
+			$req->execute();
+			$row = $req->fetch();
+			$identreprise = $row[0];
+			// On le passe en 10 chiffres
+			$idterm =  sprintf("%'.010d", $identreprise);
+			// on update l'element idTerminal
+			$req = $bdd->prepare("UPDATE Entreprise SET idTerminal = ? WHERE idUtilisateur = ?");
+			$req->execute(array($idterm, $identreprise));
 
 			// creer compte courant 
 
@@ -69,26 +77,20 @@
 			$req->execute(array($futureRib, 50));
 
 			echo "Création de compte réussie !";
-
 		}
 		else{
 			// sinon on affiche une erreur
 			echo "<p>Erreur dans le remplissage du formulaire !</p>";
 		}
-		
-		
-
-		
 	}
 	else{
 			echo "<p>Erreur dans le remplissage du formulaire !</p>";
 
-	}	
+	}
 	echo "<p>Redirection ...</p>";
 	header("refresh:5;url=index.php");
+
 ?>
-
-
 
 <?php include("templates/footer.inc.php"); ?>
 

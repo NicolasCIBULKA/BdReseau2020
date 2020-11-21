@@ -88,7 +88,7 @@
 		
 		<div id="indexformcomptecreation" class="col-5 text-center">	
 			<p id="indexsoustitre">Vous êtes une Entreprise ?</p>
-			<form action="#" method="post" id="creationaccountform" >
+			<form action="creercompteentreprise.php" method="post" id="creationaccountform" >
 				<p>
 					<label for="nomentreprise"> Nom d'Entreprise :</label>
 					<input type="text" name="nomentreprise" id="nomentreprise">

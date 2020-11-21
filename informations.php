@@ -27,12 +27,12 @@ session_start();
 					echo "<p>Prenom : ".$tabPart[1]."</p>";
 
 				}
-				else{
+				else if($_SESSION["status"] == "entreprise" ){
 					$tabEnt = getInfoEntreprise($_SESSION["identifiant"]);
-					echo "<p>Adresse Mail = ".$tabPart[2]."</p>";
+					echo "<p>Adresse Mail = ".$tabEnt[2]."</p>";
 					echo "<p>Argent total en banque : ".getTotalMoney($_SESSION["identifiant"])."€</p>";
-					echo "<p>Nom Entreprise = ".$tabPart[0]."</p>";
-					echo "<p>Identifiant de Terminal de Paiement = ".$tabPart[1]."</p>";
+					echo "<p>Nom Entreprise = ".$tabEnt[0]."</p>";
+					echo "<p>Identifiant de Terminal de Paiement = ".$tabEnt[1]."</p>";
 				}
 
 				?>
@@ -44,23 +44,44 @@ session_start();
 			<div id="infopersonelles"  class="col-6">
 				
 				<form method="post" action="function/modifyinfos.php">
+					<?php 
+						// recuperation des données utilisateurs générales
+						$bdd = BDconnect();
 
+						$req = $bdd->prepare("SELECT * FROM Utilisateur WHERE idUtilisateur=?");
+						$req->execute(array($_SESSION["identifiant"]));
+						$rowUser = $req->fetch();
+					?>
 					<div>
 						<label for="mail" >Adresse mail : </label>
-						<input type="text" name="mail" value="efizhap@fioazj.cs">
+						<input type="text" name="mail" value=<?php echo $rowUser[1] ?>>
 					</div>
 					<div>
 						<label for="mdp">Mot de passe : </label>
 						<input type="password" name="mdp">
 					</div>
-					<div>
-						<label for="nom" >Nom : </label>
-						<input type="text" name="nom" value="efzefze">
-					</div>
-					<div>
-						<label for="prenom" >Prenom : </label>
-						<input type="text" name="prenom" value="efizhap">
-					</div>
+					<?php 
+
+						if($_SESSION["status"] == "particulier" ){
+							echo "<div>";
+							echo "<label for=\"nom\" >Nom : </label>";
+							echo "<input type=\"text\" name=\"nom\" value=".$tabPart[0].">";
+							echo "</div>";
+
+							echo "<div>";
+							echo "<label for=\"prenom\" >Prenom : </label>";
+							echo "<input type=\"text\" name=\"prenom\" value=".$tabPart[1].">";
+							echo "</div>";
+
+						}
+						else{
+							echo "<div>";
+							echo "<label for=\"entreprise\" >Nom Entreprise : </label>";
+							echo "<input type=\"text\" id=\"entreprise\" name=\"entreprise\" value=".$tabEnt[0].">";
+							echo "</div>";
+						}
+					?>
+					<input type="hidden" name="status" id="status" value=<?php echo $_SESSION["status"] ?>>
 					<input type="submit" value="Modifier les informations">
 				</form>
 			</div>
