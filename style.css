@@ -85,8 +85,6 @@ nav a{
 
 /* Style formulaire creation compte*/
 
-/*------ TODO -------*/
-
 
 
 /* Style page principale connexion */
@@ -103,6 +101,26 @@ nav a{
   margin-bottom: 1em;
 }
 
+#CarteDesc{
+  padding-top: 1em;
+  font-size: 2em;
+  padding-bottom: 0.5em;
+}
+
+#CarteBleue{
+background: rgb(157,238,169);
+background: linear-gradient(148deg, rgba(157,238,169,1) 26%, rgba(188,255,186,0.805742279822085) 65%, rgba(157,238,169,1) 92%);
+  border-radius: 10px 10px ;
+  padding-top: 1em;
+  padding-bottom: 1em;
+  box-shadow: 3px 3px 3px grey;
+  border: 1px solid grey;
+
+}
+
+#CarteBleue p{
+  font-size:1.5em;
+}
 
 /* style historique */
 
@@ -157,7 +175,6 @@ nav a{
 
 /* Style Footer */
 footer{
-  margin-top: 3em;
   background-color: green;
   padding-bottom: 2em;
 }

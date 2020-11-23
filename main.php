@@ -39,6 +39,18 @@
 				</div>
 			</div>
 	</div>
+	<div class="container" >
+		<?php $row = getCarteInfoTab($_SESSION["identifiant"], $_SESSION["status"]) ?>
+		<h3 class="text-center" id="CarteDesc">Votre carte bleue </h3>
+		<div class="row justify-content-center">
+			<div class="col-3" id="CarteBleue" >
+				<p> <?php echo chunk_split($row[0], 4, ' ') ?>  </p>
+				<p> <?php echo $row[2] ?> - <?php echo $row[1] ?>  </p>
+			</div>
+			
+		</div>
+		
+	</div>
 
 
 	<div class="container" id="montantce">

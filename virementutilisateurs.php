@@ -1,3 +1,11 @@
+<?php 
+session_start();
+if(!isset($_SESSION["identifiant"])){
+	session_destroy();
+	header("Location:../index.php");
+}
+?>
+
 <?php  include("templates/head.inc.php"); ?>
 <body>
 	<?php include("templates/header.inc.php"); ?>
@@ -9,17 +17,9 @@
 		<div class="container">
 			<div class="row justify-content-center">
 				<div id="virementdiv" class="col-6 ">
-					<form method="post" action="">
-						<p>
-							<label for="comptesource">Compte Source : </label>
-							<select name="comptesource" id="comptesource">
-								<option value="">LivretA - 7893942</option>
-								<option value="">PEL - 7893942</option>
-								<option value="">COmpte Courant - 7893942</option>
-								<option value="">LivretA - 7893942</option>
-							</select>
-						</p>
-						
+					<form method="post" action="function/virementinterutilisateur.php">
+						<p>Compte Source : Compte courant - <?php echo getRibCC($_SESSION["identifiant"]); ?></p>
+						<input type="hidden" name="ribsource" id="ribsource" value=<?php echo getRibCC($_SESSION["identifiant"]) ?> >
 						<p>
 							<label for="ribdest">Rib de destination: </label>
 							<input type="text" name="ribdest">

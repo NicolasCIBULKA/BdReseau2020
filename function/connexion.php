@@ -23,7 +23,7 @@
 		else{
 			$row = $req->fetch();
 			$mdp = $row[2];
-			if(password_verify($_POST["mdp"],$mdp)){
+			if($_POST["mdp"] == $mdp){
 				$req = $bdd->prepare("SELECT * FROM Particulier WHERE idUtilisateur = (SELECT idUtilisateur FROM Utilisateur WHERE mail=?)");
 				$req->execute(array($_POST["identifiant"]));
 				if($req->rowCount() > 0){

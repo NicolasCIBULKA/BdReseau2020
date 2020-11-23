@@ -40,19 +40,16 @@
 	<div class="row justify-content-center ">
 		
 		<div class="col-3">
-			<h4>Lorem Lorem</h4>
-			<p id="indexdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis labore soluta totam eveniet provident iure aliquam, ea quibusdam possimus error, illo quisquam veritatis modi explicabo architecto animi tempore similique. Deserunt!
-			Reprehenderit corrupti expedita perferendis aperiam pariatur qui tenetur iure. Consectetur, animi. Expedita quae omnis exercitationem optio quaerat voluptatibus sint accusantium sit, laborum deleniti itaque dolorum nihil ducimus architecto sed aliquid.</p>
+			<h4>Pour vos besoins !</h4>
+			<p id="indexdesc">Dès la création de votre compte, vous avez un compte courant ouvert ainsi que 50€ d'offert, sans contreparties ! Vous avez de plus une grande offre de compte Epargne divers, avec une grande facilité d'ouverture et de fermeture. Modifier les montants sur vos comptes en un clic et profitez de tout le potentiel de notre banque !</p>
 		</div>
 		<div class="col-3">
-			<h4>Lorem Lorem</h4>
-			<p id="indexdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis labore soluta totam eveniet provident iure aliquam, ea quibusdam possimus error, illo quisquam veritatis modi explicabo architecto animi tempore similique. Deserunt!
-			Reprehenderit corrupti expedita perferendis aperiam pariatur qui tenetur iure. Consectetur, animi. Expedita quae omnis exercitationem optio quaerat voluptatibus sint accusantium sit, laborum deleniti itaque dolorum nihil ducimus architecto sed aliquid.</p>
+			<h4>Pour tous !</h4>
+			<p id="indexdesc">La création de compte est sans condition de ressources, et sans limite d'age. De plus, la prise en main de l'interface est aisée, ce qui permet de rapidement s'habituer aux possibilités offertes par notre banque ! De plus, les entreprises peuvent creer leur propre compte et avoir le moyen de réaliser des paiement via un terminal de paiement !</p>
 		</div>
 		<div class="col-3">
-			<h4>Lorem Lorem</h4>
-			<p id="indexdesc">Lorem ipsum dolor sit amet consectetur adipisicing elit. Facilis labore soluta totam eveniet provident iure aliquam, ea quibusdam possimus error, illo quisquam veritatis modi explicabo architecto animi tempore similique. Deserunt!
-			Reprehenderit corrupti expedita perferendis aperiam pariatur qui tenetur iure. Consectetur, animi. Expedita quae omnis exercitationem optio quaerat voluptatibus sint accusantium sit, laborum deleniti itaque dolorum nihil ducimus architecto sed aliquid.</p>
+			<h4>Personnalisable !</h4>
+			<p id="indexdesc">La création et suppression de compte Epargne est très rapide, et les virements simples à réaliser. De plus, que vous soyez un Particulier ou une Entreprise, vous aurez une expérience adaptée à vos besoins ! Gérez de plus les plafond de paiement quand vous le souhaitez, et envoyez de l'argent un un clic !</p>
 		</div>
 	</div>
 </div>
@@ -76,7 +73,7 @@
 				</p>
 				<p>
 					<label for="mdpcreation"> Mot de passe :</label>
-					<input type="text" name="mdpcreation" id="mdpcreation" required="required" >
+					<input type="password" name="mdpcreation" id="mdpcreation" required="required" >
 				</p>
 				<p>
 					<label for="mailcreation"> Adresse Mail :</label>

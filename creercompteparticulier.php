@@ -32,7 +32,7 @@
 			} while (in_array($futureRib,$arrayRib));
 			// creer utilisateur
 			$req = $bdd->prepare("INSERT INTO Utilisateur ( mail, mdp) VALUES ( ?, ?)");
-			$req->execute(array( $_POST["mailcreation"], password_hash($_POST["mdpcreation"], PASSWORD_DEFAULT)));
+			$req->execute(array( $_POST["mailcreation"], $_POST["mdpcreation"]));
 			// creer particulier
 
 			// on recupere d'abord l'id D'utiisateur qu'on vient d'inserer

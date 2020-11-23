@@ -64,7 +64,7 @@ function getcurrentDate(){
 // recuperer infos du particulier
 function getInfoParticulier($identifiant){
 	$bdd = BDconnect();
-	$req = $bdd->prepare("SELECT nom, prenom, mail FROM Particulier, Utilisateur WHERE Utilisateur.idUtilisateur = ?");
+	$req = $bdd->prepare("SELECT nom, prenom, mail FROM Particulier, Utilisateur WHERE Particulier.idUtilisateur = ?");
 	$req->execute(array(intval($identifiant)));
 	$row = $req->fetch();
 	return $row;
@@ -189,13 +189,115 @@ function getTabHistoVirements($identifiant){
 	
 }
 
+// recuperer le rib de compte courant d'un utilisateur
+function getRibCC($identifiant){
+	$bdd = BDconnect();
+	// recuperation des comptes
+	$req = $bdd->prepare("SELECT rib FROM CompteCourant WHERE idUtilisateur = ?");
+	$req->execute(array($_SESSION["identifiant"]));
+	$row = $req->fetch();
+	return $row[0];
+}
+
+// recuperer les infos de carte bleue d'un utilisateur
+function getCarteInfoTab($identifiant, $status){
+	$bdd = BDconnect();
+	if($status == "particulier"){
+		$req = $bdd->prepare("SELECT * FROM CompteCourant, Particulier WHERE Particulier.idUtilisateur = ?");
+		$req->execute(array($_SESSION["identifiant"]));
+		$row = $req->fetch();
+		$nom = $row[10]." ".$row[11];
+		$finalrow = array($row[3], $row[4], $nom);
+		return $finalrow;
+	}
+	else{
+		$req = $bdd->prepare("SELECT * FROM CompteCourant, Entreprise WHERE Entreprise.idUtilisateur = ?");
+		$req->execute(array($_SESSION["identifiant"]));
+		$row = $req->fetch();
+		$finalrow = array($row[3], $row[4],$row[9] );
+		return $finalrow;
+	}
+}
 
 
+// Fonction d'affichage des opérations du compte Courant
+function getOperationCC($identifiant, $nb){
+	$bdd = BDconnect();
+	// recuperer le rib de Compte Courant
+	$req = $bdd->prepare("SELECT rib FROM CompteCourant WHERE idUtilisateur = ?");
+	$req->execute(array($_SESSION["identifiant"]));
+	$rib = $req->fetch()[0];
+	$req = $bdd->prepare("SELECT * FROM Transactions WHERE ribEmetteur = ? OR ribRecepteur = ? ORDER BY idTransaction DESC");
+	$req->execute(array($rib, $rib));
+	$i = 0;
+	while(($row = $req->fetch()) && $i < $nb ){
+		if($row[4] != $row[6]){
+			echo "<tr>";
+			echo "<td>".$row[1]."</td>";
+			echo "<td>".$row[9]."</td>";
+			echo "<td>".$row[4]."</td>";
+			if($row[6] == $rib){
+				echo "<td>------------ €</td>";
+				echo "<td>".$row[2]."€</td>";
+			}
+			else{
+				echo "<td>".$row[2]."€</td>";
+				echo "<td>------------ €</td>";
+			}
+			echo "<td>".$row[6]."</td>";
+			echo "<td>".$row[7]."</td>";
+
+			echo "</tr>";
+			$i++;
+		}
+		
+	}
+}
 
 
+// fonction d'affichage des virements inter comptes
+function getVirementIC($identifiant){
+	$bdd = BDconnect();
+	// recuperer la liste des virements de l'utilisateur
+	$req = $bdd->prepare("SELECT * FROM Transactions WHERE operationType = ? AND idEmetteur = ? AND idRecepteur = ? ORDER BY idTransaction DESC ");
+	$i = 0;
+	$req->execute(array("Virement", $identifiant, $identifiant));
+	while(($row = $req->fetch()) && ($i < 10)){
+		echo "<tr>";
+		echo "<td>".$row[1]."</td>";
+		echo "<td>".$row[0]."</td>";
+		echo "<td>".$row[2]."€</td>";
+		echo "<td>".$row[4]."</td>";
+		echo "<td>".$row[6]."</td>";
+		echo "</tr>";
+		$i++;
+	}
+}
 
 
+// fonction d'affichage des virements inter comptes
+function getVirementIU($identifiant){
+	$bdd = BDconnect();
+	$nom;
+	// recuperer la liste des virements de l'utilisateur
+	$req = $bdd->prepare("SELECT * FROM Transactions WHERE operationType = ? AND idEmetteur = ? ORDER BY idTransaction DESC ");
+	$req->execute(array("Virement", $identifiant));
+	$i = 0;
+	while(($row = $req->fetch()) && ($i < 10)){
+		if($row[3] != $row[5]){
+			echo "<tr>";
+			echo "<td>".$row[1]."</td>";
+			echo "<td>".$row[0]."</td>";
+			echo "<td>".$row[2]."€</td>";
+			echo "<td>".$row[4]."</td>";
+			echo "<td>".$row[6]."</td>";
+			echo "</tr>";
+			$i++;
+		}
+		
+	}
 
+}
 
 
 

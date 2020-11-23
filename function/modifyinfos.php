@@ -18,9 +18,9 @@ if(isset($_POST["mail"]) && isset($_POST["mdp"]) && isset($_POST["status"])){
 		$req->execute(array($_POST["mail"], $_SESSION["identifiant"]));
 	}
 	if(!empty($_POST["mdp"])){
-		if(!password_verify($_POST["mdp"], $row[1])){
+		if(!($_POST["mdp"] == $row[1])){
 			$req = $bdd->prepare("UPDATE Utilisateur SET mdp = ? WHERE idUtilisateur = ?");
-			$req->execute(array(password_hash($_POST["mdp"], PASSWORD_DEFAULT), $_SESSION["identifiant"]));
+			$req->execute(array($_POST["mdp"], $_SESSION["identifiant"]));
 		}
 	}
 	

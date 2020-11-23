@@ -15,6 +15,8 @@ if(isset($_POST["comptesource"]) && isset($_POST["comptedest"]) && isset($_POST[
 	if($reqsrc->rowCount() > 0){
 		$reqdest = $bdd->prepare("SELECT * FROM Compte WHERE rib = ?");
 		$reqdest->execute(array($_POST["comptedest"]));
+		$idsource = $_SESSION["identifiant"];
+		$iddest = $_SESSION["identifiant"];
 		if($reqdest->rowCount() > 0){
 			// recuperer les sommes presentes sur les 2 comptes en testant si ils sont courant ou epargne
 			$reqsrc = $bdd->prepare("SELECT * FROM CompteCourant WHERE rib = ?");
@@ -27,12 +29,12 @@ if(isset($_POST["comptesource"]) && isset($_POST["comptedest"]) && isset($_POST[
 				$reqsrc->execute(array($_POST["comptesource"]));
 				$sommesource = $reqsrc->fetch()[2];
 			}
-			echo $sommesource;
+
 			// verifier que les fonds sont bons
-			if($sommesource>= intval($_POST["montant"])){
+			if($sommesource >= intval($_POST["montant"])){
 				// ajouter une transaction
-				$req = $bdd->prepare("INSERT INTO Transactions (dateTransaction, montantTransaction,ribEmetteur, ribRecepteur, message, idTerminal) VALUES (?,?,?,?,?,?)");
-				$req->execute(array(date("d-m-Y"), intval($_POST["montant"]),$_POST["comptesource"], $_POST["comptedest"], NULL, NULL));
+				$req = $bdd->prepare("INSERT INTO Transactions (dateTransaction, montantTransaction, idEmetteur,ribEmetteur, idRecepteur,ribRecepteur, message, idTerminal, operationType) VALUES (?,?,?,?,?,?,?,?,?)");
+				$req->execute(array(date("d-m-Y"), floatval($_POST["montant"]),$idsource,$_POST["comptesource"], $iddest, $_POST["comptedest"], NULL, NULL, "Virement"));
 
 				//ajout des 2 comptes dans la table Effectue
 				// recuperation de l'ID de transaction
@@ -52,6 +54,7 @@ if(isset($_POST["comptesource"]) && isset($_POST["comptedest"]) && isset($_POST[
 				$req = $bdd->prepare("SELECT * FROM CompteEpargne WHERE rib = ?");
 				// realiser l'operation sur la table compteEpargne
 				$req->execute(array($_POST["comptesource"]));
+
 				if($req->rowCount() > 0){
 					$req = $bdd->prepare("SELECT montant FROM CompteEpargne WHERE rib = ?");
 					$req->execute(array($_POST["comptesource"]));
@@ -90,11 +93,13 @@ if(isset($_POST["comptesource"]) && isset($_POST["comptedest"]) && isset($_POST[
 					$row = $req->fetch();
 					$newmontantdest= floatval($row[0]) + $varmontant;
 					echo $newmontantdest;
-					$req = $bdd->prepare("UPDATE CompteCourant SET montant = ?WHERE rib = ?");
-					$req->execute(array($newmontantdest,$_POST["comptedest"]));
+					$req = $bdd->prepare("UPDATE CompteCourant SET montant = ? WHERE rib = ?");
+					$req->execute(array($newmontantdest, $_POST["comptedest"]));
 				}
-				
 
+				$req = $bdd->prepare("UPDATE Compte SET somme = ? WHERE rib = ?");
+				$req->execute(array($newmontantsource, $_POST["comptesource"]));
+				$req->execute(array($newmontantdest ,$_POST["comptedest"]));
 				// redirection
 				header('Location:../virement.php');
 			}
