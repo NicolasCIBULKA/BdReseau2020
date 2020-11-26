@@ -25,8 +25,8 @@
 					<p>Montant actuel sur le compte courant</p>
 				</div>
 				<div>
-					<p>Plafond : <?php echo getPlafond($_SESSION["identifiant"]) ?> €</p>
-					<p>Redéfinir le plafond de paiement</p>
+					<p class="font-weight-bold">Plafond : <?php echo getPlafond($_SESSION["identifiant"]) ?> €</p>
+					<p class="font-italic">Redéfinir le plafond de paiement</p>
 					<form method="post" action="function/refaireplafond.php">
 						<p>
 							<input type="text" name="plafondpaiement">

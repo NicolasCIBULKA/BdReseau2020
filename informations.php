@@ -22,7 +22,7 @@ session_start();
 				if($_SESSION["status"] == "particulier" ){
 					$tabPart = getInfoParticulier($_SESSION["identifiant"]);
 					echo "<p>Adresse Mail : ".$tabPart[2]."</p>";
-					echo "<p>Argent total en banque : ".getTotalMoney($_SESSION["identifiant"])."€</p>";
+					echo "<p class=\"font-weight-bold\">Argent total en banque : ".getTotalMoney($_SESSION["identifiant"])."€</p>";
 					echo "<p>Nom : ".$tabPart[0]."</p>";
 					echo "<p>Prenom : ".$tabPart[1]."</p>";
 

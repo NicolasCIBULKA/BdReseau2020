@@ -55,9 +55,9 @@
 </div>
 
 
-<div class="container">
-	<h3>Créez un compte dès maintenant !</h3>
-	<p>Et bénéficiez de 50 euros sur votre compte courant !</p>
+<div class="container" id="accountcreationindex">
+	<h3 class="text-center">Créez un compte dès maintenant !</h3>
+	<p class="text-center font-italic">Et bénéficiez de 50 euros sur votre compte courant !</p>
 	<div class="row justify-content-center">
 
 		<div id="indexformcomptecreation" class="col-5 text-center">	
