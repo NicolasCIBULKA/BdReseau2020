@@ -80,14 +80,14 @@
 		}
 		else{
 			// sinon on affiche une erreur
-			echo "<p>Erreur dans le remplissage du formulaire !</p>";
+			echo "<p class=\"text-center accountcreation\">Erreur dans le remplissage du formulaire !</p>";
 		}
 	}
 	else{
-			echo "<p>Erreur dans le remplissage du formulaire !</p>";
+			echo "<p class=\"text-center accountcreation\">Erreur dans le remplissage du formulaire !</p>";
 
 	}
-	echo "<p>Redirection ...</p>";
+	echo "<p class=\"text-center accountcreation\">Redirection ...</p>";
 	header("refresh:5;url=index.php");
 
 ?>

@@ -75,6 +75,10 @@ nav a:hover{
 
 }
 
+#accountcreation{
+  padding: 2em;
+}
+
 #indexdesc{
 	text-align: justify;
 }
