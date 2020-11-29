@@ -40,7 +40,9 @@
 			</div>
 	</div>
 	<div class="container" >
-		<?php $row = getCarteInfoTab($_SESSION["identifiant"], $_SESSION["status"]) ?>
+		<?php $row = getCarteInfoTab($_SESSION["identifiant"], $_SESSION["status"]);
+			$rib = $row[3];
+		?>
 		<h3 class="text-center" id="CarteDesc">Votre carte bleue </h3>
 		<div class="row justify-content-center">
 			<div class="col-3" id="CarteBleue" >
@@ -49,7 +51,7 @@
 			</div>
 			
 		</div>
-		
+		<p class="text-center">RIB Compte Courant : <?php echo getRibCC($_SESSION["identifiant"]) ?></p>
 	</div>
 
 

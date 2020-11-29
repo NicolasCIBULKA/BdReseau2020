@@ -184,10 +184,7 @@ function getOptionCC($identifiant){
 	echo "<option value=".$row[0]."> Compte Courant- ".$row[0]."</option>";	
 }
 
-// affichage tab historique 10 derniers virements 
-function getTabHistoVirements($identifiant){
-	
-}
+
 
 // recuperer le rib de compte courant d'un utilisateur
 function getRibCC($identifiant){
@@ -203,18 +200,18 @@ function getRibCC($identifiant){
 function getCarteInfoTab($identifiant, $status){
 	$bdd = BDconnect();
 	if($status == "particulier"){
-		$req = $bdd->prepare("SELECT * FROM CompteCourant, Particulier WHERE Particulier.idUtilisateur = ?");
+		$req = $bdd->prepare("SELECT * FROM CompteCourant, Particulier WHERE CompteCourant.idUtilisateur = ?");
 		$req->execute(array($_SESSION["identifiant"]));
 		$row = $req->fetch();
 		$nom = $row[10]." ".$row[11];
-		$finalrow = array($row[3], $row[4], $nom);
+		$finalrow = array($row[3], $row[4], $nom, $row[5]);
 		return $finalrow;
 	}
 	else{
-		$req = $bdd->prepare("SELECT * FROM CompteCourant, Entreprise WHERE Entreprise.idUtilisateur = ?");
+		$req = $bdd->prepare("SELECT * FROM CompteCourant, Entreprise WHERE CompteCourant.idUtilisateur = ?");
 		$req->execute(array($_SESSION["identifiant"]));
 		$row = $req->fetch();
-		$finalrow = array($row[3], $row[4],$row[9] );
+		$finalrow = array($row[3], $row[4],$row[9], $row[5]);
 		return $finalrow;
 	}
 }

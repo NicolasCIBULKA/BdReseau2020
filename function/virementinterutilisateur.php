@@ -52,17 +52,17 @@ if(isset($_POST["ribsource"]) && isset($_POST["ribdest"]) && isset($_POST["monta
 
 		}
 		else{
-			//header('Location:../main.php');
+			header('Location:../main.php');
 		}
 	}
 	else{
-		//header('Location:../main.php');
+		header('Location:../main.php');
 	}
 
 	
 	}
 	else{
-		//header('Location:../main.php');
+		header('Location:../main.php');
 	}
 	
 
