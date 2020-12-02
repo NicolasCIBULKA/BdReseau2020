@@ -64,7 +64,7 @@ function getcurrentDate(){
 // recuperer infos du particulier
 function getInfoParticulier($identifiant){
 	$bdd = BDconnect();
-	$req = $bdd->prepare("SELECT nom, prenom, mail FROM Particulier, Utilisateur WHERE Particulier.idUtilisateur = ?");
+	$req = $bdd->prepare("SELECT nom, prenom, mail FROM Particulier, Utilisateur WHERE Utilisateur.idUtilisateur = ?");
 	$req->execute(array(intval($identifiant)));
 	$row = $req->fetch();
 	return $row;
@@ -211,7 +211,7 @@ function getCarteInfoTab($identifiant, $status){
 		$req = $bdd->prepare("SELECT * FROM CompteCourant, Entreprise WHERE CompteCourant.idUtilisateur = ?");
 		$req->execute(array($_SESSION["identifiant"]));
 		$row = $req->fetch();
-		$finalrow = array($row[3], $row[4],$row[9], $row[5]);
+		$finalrow = array($row[3], $row[4],$row[10], $row[5]);
 		return $finalrow;
 	}
 }
